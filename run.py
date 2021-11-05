@@ -9,4 +9,4 @@ urls = [
 
 for url in urls:
     data = scrape(url)
-    print(data.name, data.price)
+    print(data.timestamp, data.name, data.price, data.url)

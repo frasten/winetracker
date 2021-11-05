@@ -19,8 +19,8 @@ def scrape(url: str) -> ScrapeData:
     page = requests.get(url, headers=headers)
     soup = BeautifulSoup(page.content, "html.parser")
 
-    price = scraper.ScrapePrice(soup)
-    name = scraper.ScrapeName(soup)
+    price = scraper.scrape_price(soup)
+    name = scraper.scrape_name(soup)
 
     data = ScrapeData()
     data.url = url
