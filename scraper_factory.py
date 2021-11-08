@@ -35,7 +35,7 @@ class VinicumScraper(AbstractScraper):
 
 class VinoComScraper(AbstractScraper):
     def scrape_price(self, soup: BeautifulSoup) -> float:
-        tag = soup.find("span", class_="prezzo")[0]
+        tag = soup.find("span", class_="prezzo")
         priceText = tag.text
         return parse_italian_price(priceText)
 
