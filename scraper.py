@@ -19,8 +19,17 @@ def scrape(url: str) -> ScrapeData:
     page = requests.get(url, headers=headers)
     soup = BeautifulSoup(page.content, "html.parser")
 
-    price = scraper.scrape_price(soup)
-    name = scraper.scrape_name(soup)
+    try:
+        price = scraper.scrape_price(soup)
+    except e:
+        print(f"Error parsing price for {url}: {e}")
+        return None
+    
+    try:
+        name = scraper.scrape_name(soup)
+    except:
+        print(f"Error parsing name for {url}: {e}")
+        return None
 
     data = ScrapeData()
     data.url = url

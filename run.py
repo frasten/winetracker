@@ -14,4 +14,6 @@ urls = [
 
 for url in urls:
     data = scrape(url)
+    if data is None:
+        continue
     print(data.timestamp, data.name, data.price, data.url)
