@@ -27,7 +27,7 @@ def scrape(url: str) -> ScrapeData:
     
     try:
         name = scraper.scrape_name(soup)
-    except:
+    except e:
         print(f"Error parsing name for {url}: {e}")
         return None
 
