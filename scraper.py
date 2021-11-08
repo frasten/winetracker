@@ -21,14 +21,14 @@ def scrape(url: str) -> ScrapeData:
 
     try:
         price = scraper.scrape_price(soup)
-    except Exception as e:
-        print(f"Error parsing price for {url}: {e}")
+    except Exception as err:
+        print(f"Error parsing price for {url}: {err=}")
         return None
     
     try:
         name = scraper.scrape_name(soup)
-    except Exception as e:
-        print(f"Error parsing name for {url}: {e}")
+    except Exception as err:
+        print(f"Error parsing name for {url}: {err=}")
         return None
 
     data = ScrapeData()
