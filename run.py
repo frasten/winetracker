@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from scraper import scrape
+import db
 
 urls = [
     'https://www.tannico.it/morellino-di-scansano-riserva-docg-purosangue-2017-terenzi.html',
@@ -12,8 +13,27 @@ urls = [
     'https://www.vinicum.com/i-vini/aiace-salice-salentino-riserva-doc-67374-06.html',
     ]
 
+db.init()
+
+def insert_records_into_db(urls):
+    items = []
+
+    for url in urls:
+        item = db.build_item_from_url(url)
+    
+    
+        data = scrape(url)
+        if data is None:
+            continue
+        
+    pass
+
+
+
 for url in urls:
     data = scrape(url)
     if data is None:
         continue
     print(data.timestamp, data.name, data.price, data.url)
+
+db.close()
