@@ -20,20 +20,19 @@ def insert_records_into_db(urls):
 
     for url in urls:
         item = db.build_item_from_url(url)
+        items.append(item)
     
-    
-        data = scrape(url)
-        if data is None:
-            continue
-        
-    pass
+    return items
 
 
+items = insert_records_into_db(urls)
 
-for url in urls:
-    data = scrape(url)
+for item in items:
+    data = scrape(item.url)
     if data is None:
         continue
     print(data.timestamp, data.name, data.price, data.url)
+
+    db.store_price(item, data)
 
 db.close()
