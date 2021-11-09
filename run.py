@@ -10,6 +10,10 @@ def load_items_list():
             url = line.rstrip()
             if (len(url) == 0):
                 continue
+            if url[0] == '#':
+                # comment, ignore
+                continue
+
             urls.append(url)
     return urls
 
