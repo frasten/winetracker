@@ -7,8 +7,8 @@ def load_items_list():
     urls = []
     with open('items.txt') as file:
         for line in file:
-            url = line.rstrip()
-            if (len(url) == 0):
+            url = line.strip()
+            if len(url) == 0:
                 continue
             if url[0] == '#':
                 # comment, ignore
